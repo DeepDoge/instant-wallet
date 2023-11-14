@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "instant-wallet",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "ethers": "^6.8.1",
+    "master-ts": "https://github.com/DeepDoge/master-ts/releases/download/0.0.134/package.tgz",
+    "prettier": "^3.1.0"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}
