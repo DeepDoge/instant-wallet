@@ -26,14 +26,14 @@ export interface Eip1193Provider extends ethers.Eip1193Provider {
 
 export interface ConnectMethod {
     name: string;
-    icon: SVGElement;
+    icon(): SVGElement;
     ethereum: Eip1193Provider | { (): Promise<Eip1193Provider> };
 }
 
 export interface NetworkInfo {
     chainId: bigint;
     name: string;
-    icon?: SVGElement;
+    icon?(): SVGElement;
     color?: string;
     rpcUrl: Utils.HttpUrl;
     blockExplorer?: Utils.HttpUrl;
