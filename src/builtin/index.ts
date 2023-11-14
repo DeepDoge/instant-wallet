@@ -1,2 +1,2 @@
+export * as Chains from "./chains";
 export * as Methods from "./methods";
-export * as Networks from "./networks";

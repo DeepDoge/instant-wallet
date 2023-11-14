@@ -1,6 +1,6 @@
 {
     "type": "module",
-    "name": "instant-wallet",
+    "name": "zap-wallet",
     "scripts": {
         "format": "prettier --write ."
     },

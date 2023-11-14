@@ -1,1 +1,1 @@
-export * as InstantWallet from "./wallet";
+export * as ZapWallet from "./wallet";
