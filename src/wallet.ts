@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import * as Utils from "./utils";
+export * as Builtin from "./builtin";
 export * as Utils from "./utils";
 
 /* 
@@ -33,7 +34,7 @@ export interface NetworkInfo {
     chainId: bigint;
     name: string;
     icon?: SVGElement;
-    color?: Utils.Color;
+    color?: string;
     rpcUrl: Utils.HttpUrl;
     blockExplorer?: Utils.HttpUrl;
     ensAddress?: Utils.Address;
