@@ -26,7 +26,7 @@ export interface Eip1193Provider extends ethers.Eip1193Provider {
 export interface ConnectMethod {
     name: string;
     icon: SVGElement;
-    ethereum: Eip1193Provider;
+    ethereum: Eip1193Provider | { (): Promise<Eip1193Provider> };
 }
 
 export interface NetworkInfo {
@@ -60,12 +60,15 @@ export namespace Wallet {
         method: ConnectMethod,
         mode: "soft" | "hard",
     ): Promise<Wallet.Connected | Wallet.Disconnected> {
-        const provider = new ethers.BrowserProvider(method.ethereum);
+        const provider = new ethers.BrowserProvider(
+            typeof method.ethereum === "function" ? await method.ethereum() : method.ethereum,
+        );
         const signer =
             (await provider.listAccounts().then((accounts) => accounts[0])) ?? mode === "hard"
                 ? await provider.getSigner()
                 : null;
         if (!signer) return { connected: false };
+
         return {
             connected: true,
             method,
